@@ -42,13 +42,14 @@ func FizzBuzz(n int) {
 }
 
 func printFizzBuzzValue(n int)  {
-	if n % 3 == 0 && n % 5 == 0 {
+	switch {
+	case n % 3 == 0 && n % 5 == 0:
 		fmt.Print("Fizz Buzz")
-	} else if n % 3 == 0 {
+	case n % 3 == 0:
 		fmt.Print("Fizz")
-	} else if n % 5 == 0 {
+	case n % 5 == 0:
 		fmt.Print("Buzz")
-	} else {
+	default:
 		fmt.Print(n)
 	}
 }
