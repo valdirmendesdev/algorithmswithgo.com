@@ -13,24 +13,42 @@ import "fmt"
 // I wouldn't normally recommend this, but did
 // it here to make life easier for beginners.
 func FizzBuzz(n int) {
-	for i := 1; i <= n; i++ {
-		printed := false
-		if i == 1 {
-			fmt.Print(i)
-			continue
-		}
-		fmt.Print(",")
-		if i % 3 == 0 {
-			fmt.Print(" Fizz")
-			printed = true
-		}
-		if i % 5 == 0 {
-			fmt.Print(" Buzz")
-			printed = true
-		}
-		if printed != true {
-			fmt.Print(" ", i)
-		}
+	//for i := 1; i <= n; i++ {
+	//	printed := false
+	//	if i == 1 {
+	//		fmt.Print(i)
+	//		continue
+	//	}
+	//	fmt.Print(",")
+	//	if i % 3 == 0 {
+	//		fmt.Print(" Fizz")
+	//		printed = true
+	//	}
+	//	if i % 5 == 0 {
+	//		fmt.Print(" Buzz")
+	//		printed = true
+	//	}
+	//	if printed != true {
+	//		fmt.Print(" ", i)
+	//	}
+	//}
+	//fmt.Println()
+	for i := 1; i < n; i++ {
+		printFizzBuzzValue(i)
+		fmt.Print(", ")
 	}
+	printFizzBuzzValue(n)
 	fmt.Println()
+}
+
+func printFizzBuzzValue(n int)  {
+	if n % 3 == 0 && n % 5 == 0 {
+		fmt.Print("Fizz Buzz")
+	} else if n % 3 == 0 {
+		fmt.Print("Fizz")
+	} else if n % 5 == 0 {
+		fmt.Print("Buzz")
+	} else {
+		fmt.Print(n)
+	}
 }
