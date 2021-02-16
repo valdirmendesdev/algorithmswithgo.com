@@ -1,5 +1,7 @@
 package module01
 
+import "strconv"
+
 // DecToBase will return a string representing
 // the provided decimal number in the provided base.
 // This is limited to bases 2-16 for simplicity.
@@ -10,5 +12,31 @@ package module01
 //   DecToBase(14, 2) => "1110"
 //
 func DecToBase(dec, base int) string {
-	return ""
+
+	result := ""
+	quocient := dec
+
+	for {
+		switch quocient % base {
+		case 10:
+			result = "A" + result
+		case 11:
+			result = "B" + result
+		case 12:
+			result = "C" + result
+		case 13:
+			result = "D" + result
+		case 14:
+			result = "E" + result
+		case 15:
+			result = "F" + result
+		default:
+			result = strconv.Itoa(quocient%base) + result
+		}
+		quocient = quocient / base
+		if quocient == 0 {
+			break
+		}
+	}
+	return result
 }
