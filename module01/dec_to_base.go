@@ -16,7 +16,7 @@ func DecToBase(dec, base int) string {
 	result := ""
 	quocient := dec
 
-	for {
+	for quocient > 0 {
 		switch quocient % base {
 		case 10:
 			result = "A" + result
@@ -34,9 +34,6 @@ func DecToBase(dec, base int) string {
 			result = strconv.Itoa(quocient%base) + result
 		}
 		quocient = quocient / base
-		if quocient == 0 {
-			break
-		}
 	}
 	return result
 }
