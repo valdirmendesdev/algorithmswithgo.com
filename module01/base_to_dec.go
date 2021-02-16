@@ -1,7 +1,7 @@
 package module01
 
 import (
-	"strings"
+	"fmt"
 )
 
 // BaseToDec takes in a number and the base it is currently
@@ -13,12 +13,12 @@ import (
 //   BaseToDec("1110", 2) => 14
 //
 func BaseToDec(value string, base int) int {
-	const charset = "0123456789ABCDEF"
 	multiplier := 1
 	result := 0
-	for _, character := range Reverse(value) {
-		intValue := strings.IndexRune(charset, character)
-		result += intValue * multiplier
+	for i := len(value) - 1; i >= 0; i-- {
+		var val int
+		fmt.Sscanf(string(value[i]), "%X", &val)
+		result += multiplier * val
 		multiplier *= base
 	}
 
