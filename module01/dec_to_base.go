@@ -1,6 +1,8 @@
 package module01
 
-import "strconv"
+import (
+	"strings"
+)
 
 // DecToBase will return a string representing
 // the provided decimal number in the provided base.
@@ -12,28 +14,13 @@ import "strconv"
 //   DecToBase(14, 2) => "1110"
 //
 func DecToBase(dec, base int) string {
-
-	result := ""
+	const charset = "0123456789ABCDEF"
+	var sb strings.Builder
 	quocient := dec
 
 	for quocient > 0 {
-		switch quocient % base {
-		case 10:
-			result = "A" + result
-		case 11:
-			result = "B" + result
-		case 12:
-			result = "C" + result
-		case 13:
-			result = "D" + result
-		case 14:
-			result = "E" + result
-		case 15:
-			result = "F" + result
-		default:
-			result = strconv.Itoa(quocient%base) + result
-		}
+		sb.WriteByte(charset[quocient%base])
 		quocient = quocient / base
 	}
-	return result
+	return Reverse(sb.String())
 }
