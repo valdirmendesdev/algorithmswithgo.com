@@ -22,7 +22,7 @@ package module01
 //   Factor([], 4) // []int{4}
 //
 func Factor(primes []int, number int) []int {
-	res := []int{}
+	var res []int
 	remainder := number
 
 	for _, elem := range primes {
